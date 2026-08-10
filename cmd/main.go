@@ -1,0 +1,56 @@
+package main
+
+import (
+	"log"
+	"os"
+
+	"go-scaffolder/internal/util"
+
+	"github.com/spf13/cobra"
+)
+
+var moduleName string
+
+var rootCmd = &cobra.Command{
+	Use:   "sprout",
+	Short: "A CLI tool meant to scaffold new Go projects",
+	Long: `
+
+  _____________________________ ________   ____ ______________
+ /   _____/\______   \______   \\_____  \ |    |   \__    ___/
+ \_____  \  |     ___/|       _/ /   |   \|    |   / |    |
+ /        \ |    |    |    |   \/    |    \    |  /  |    |
+/_______  / |____|    |____|_  /\_______  /______/   |____|
+        \/                   \/         \/
+
+This is sprout. A CLI tool meant to scaffold new Go projects.`,
+}
+
+var initCmd = &cobra.Command{
+	Use:   "init [path]",
+	Short: "Scaffold new go projects",
+	Long:  "This is the command used to create new go projects at the specified path. the '.' character is used for the current directory, any other path should be specified",
+	Args:  cobra.ExactArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {
+		path := args[0]
+		if path == "." {
+			wd, err := os.Getwd()
+			if err != nil {
+				log.Printf("Unable to get wd: %s", err)
+				os.Exit(1)
+			}
+			if moduleName == "" {
+				util.NoModuleName(wd)
+			}
+		}
+	},
+}
+
+func main() {
+	initCmd.Flags().StringVarP(&moduleName, "module", "m", "", "The module name to be created. Defaults to the name of the directory")
+	rootCmd.AddCommand(initCmd)
+	if err := rootCmd.Execute(); err != nil {
+		log.Printf("An Error occured: %s", err)
+		os.Exit(1)
+	}
+}
