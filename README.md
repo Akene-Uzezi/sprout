@@ -7,16 +7,19 @@ so you can start writing code without the boilerplate.
 
 ## Install
 
-```sh
-go install go-scaffolder@latest
-```
-
-Or build from source:
+Build from source:
 
 ```sh
 git clone https://github.com/<your-username>/sprout.git
 cd sprout
-go build -o sprout ./cmd
+go build -o sprout ./cmd/main.go
+sudo mv sprout /usr/bin/sprout
+```
+
+Or install directly with Go:
+
+```sh
+go install go-scaffolder@latest
 ```
 
 ## Usage
@@ -57,7 +60,7 @@ This project uses [Cobra](https://github.com/spf13/cobra) for command parsing.
 
 ```sh
 go build ./...
-go run ./cmd init .
+go run ./cmd/main.go init .
 ```
 
 ## License
