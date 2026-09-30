@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"sprout/internal/util"
+	"github.com/Akene-Uzezi/sprout/internal/util"
 
 	"github.com/spf13/cobra"
 )

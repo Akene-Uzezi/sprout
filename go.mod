@@ -1,4 +1,4 @@
-module sprout
+module github.com/Akene-Uzezi/sprout
 
 go 1.26.5
 

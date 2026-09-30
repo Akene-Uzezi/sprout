@@ -10,7 +10,7 @@ so you can start writing code without the boilerplate.
 Build from source:
 
 ```sh
-git clone https://github.com/<your-username>/sprout.git
+git clone https://github.com/Akene-Uzezi/sprout.git
 cd sprout
 go build -o sprout ./cmd/main.go
 sudo mv sprout /usr/bin/sprout
@@ -19,7 +19,7 @@ sudo mv sprout /usr/bin/sprout
 Or install directly with Go:
 
 ```sh
-go install sprout@latest
+go install github.com/Akene-Uzezi/sprout@latest
 ```
 
 ## Usage
