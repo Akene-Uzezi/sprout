@@ -24,7 +24,8 @@ func NoModuleName(wd string) {
 		log.Printf("error executing go mod init: %s", err)
 		os.Exit(1)
 	}
-	fmt.Println(string(output))
+	CreateDirAndFiles()
+	log.Println(string(output))
 }
 
 func CreateDirAndFiles() {
