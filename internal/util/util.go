@@ -29,17 +29,18 @@ func NoModuleName(wd string) {
 }
 
 func CreateDirAndFiles() {
-	err := os.Mkdir("cmd", 0o755)
+	err := os.Mkdir("cmd", 0o777)
 	if err != nil {
 		log.Printf("error: %s", err)
 		os.Exit(1)
 	}
-	err = os.Mkdir("internal", 0o755)
+	err = os.Mkdir("internal", 0o777)
 	if err != nil {
 		log.Printf("error: %s", err)
 		os.Exit(1)
 	}
-	if _, err := exec.Command("cd", "cmd", "&&", "touch", "main.go").Output(); err != nil {
+	err = os.Chdir("/cmd/")
+	if err != nil {
 		log.Printf("error: %s", err)
 		os.Exit(1)
 	}
@@ -52,7 +53,7 @@ func CreateDirAndFiles() {
 			fmt.Println("hello world")
 		}
 	`
-	err = os.WriteFile("cmd/main.go", []byte(mainFileInput), 0o644)
+	err = os.WriteFile("main.go", []byte(mainFileInput), 0o666)
 	if err != nil {
 		log.Printf("error writing to file: %s", err)
 		os.Exit(1)
