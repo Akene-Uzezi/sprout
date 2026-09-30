@@ -28,6 +28,17 @@ func NoModuleName(wd string) {
 	log.Println(string(output))
 }
 
+func WithModuleName(moduleName string) {
+	cmd := exec.Command("go", "mod", "init", moduleName)
+	output, err := cmd.Output()
+	if err != nil {
+		log.Printf("error executing go mod init: %s", err)
+		os.Exit(1)
+	}
+	CreateDirAndFiles()
+	log.Printf(string(output))
+}
+
 func CreateDirAndFiles() {
 	err := os.Mkdir("cmd", 0o777)
 	if err != nil {

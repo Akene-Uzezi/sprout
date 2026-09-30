@@ -41,6 +41,8 @@ var initCmd = &cobra.Command{
 			}
 			if moduleName == "" {
 				util.NoModuleName(wd)
+			} else {
+				util.WithModuleName(moduleName)
 			}
 		}
 	},
