@@ -39,7 +39,7 @@ func CreateDirAndFiles() {
 		log.Printf("error: %s", err)
 		os.Exit(1)
 	}
-	err = os.Chdir("/cmd/")
+	err = os.Chdir("cmd")
 	if err != nil {
 		log.Printf("error: %s", err)
 		os.Exit(1)
