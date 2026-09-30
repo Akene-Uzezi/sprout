@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"go-scaffolder/internal/util"
+	"sprout/internal/util"
 
 	"github.com/spf13/cobra"
 )

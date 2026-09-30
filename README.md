@@ -19,7 +19,7 @@ sudo mv sprout /usr/bin/sprout
 Or install directly with Go:
 
 ```sh
-go install go-scaffolder@latest
+go install sprout@latest
 ```
 
 ## Usage
