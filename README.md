@@ -12,7 +12,7 @@ Build from source:
 ```sh
 git clone https://github.com/Akene-Uzezi/sprout.git
 cd sprout
-go build -o sprout ./cmd/main.go
+go build -o sprout .
 sudo mv sprout /usr/bin/sprout
 ```
 
@@ -60,9 +60,9 @@ This project uses [Cobra](https://github.com/spf13/cobra) for command parsing.
 
 ```sh
 go build ./...
-go run ./cmd/main.go init .
+go run main.go init .
 ```
 
 ## License
 
-See repository for license details.
+No license file is present in this repository.
