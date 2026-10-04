@@ -14,7 +14,7 @@ var moduleName string
 var rootCmd = &cobra.Command{
 	Use:     "sprout",
 	Short:   "A CLI tool meant to scaffold new Go projects",
-	Version: "1.0.11",
+	Version: "1.0.12",
 	Long: `
 
   _____________________________ ________   ____ ______________
