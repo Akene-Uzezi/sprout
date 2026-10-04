@@ -12,8 +12,9 @@ import (
 var moduleName string
 
 var rootCmd = &cobra.Command{
-	Use:   "sprout",
-	Short: "A CLI tool meant to scaffold new Go projects",
+	Use:     "sprout",
+	Short:   "A CLI tool meant to scaffold new Go projects",
+	Version: "1.0.11",
 	Long: `
 
   _____________________________ ________   ____ ______________
@@ -27,11 +28,10 @@ This is sprout. A CLI tool meant to scaffold new Go projects.`,
 }
 
 var initCmd = &cobra.Command{
-	Use:     "init [path]",
-	Short:   "Scaffold new go projects",
-	Version: "1.0.11",
-	Long:    "This is the command used to create new go projects at the specified path. the '.' character is used for the current directory, any other path should be specified",
-	Args:    cobra.ExactArgs(1),
+	Use:   "init [path]",
+	Short: "Scaffold new go projects",
+	Long:  "This is the command used to create new go projects at the specified path. the '.' character is used for the current directory, any other path should be specified",
+	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		path := args[0]
 		if path == "." {
