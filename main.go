@@ -9,7 +9,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var moduleName string
+var (
+	moduleName string
+	language   string
+)
 
 var rootCmd = &cobra.Command{
 	Use:     "sprout",
@@ -67,6 +70,7 @@ var initCmd = &cobra.Command{
 
 func main() {
 	initCmd.Flags().StringVarP(&moduleName, "module", "m", "", "The module name to be created. Defaults to the name of the directory")
+	initCmd.Flags().StringVarP(&language, "lang", "l", "", "The language of the project to be scaffolded. Defaults to Go")
 	rootCmd.AddCommand(initCmd)
 	if err := rootCmd.Execute(); err != nil {
 		log.Printf("An Error occured: %s", err)
