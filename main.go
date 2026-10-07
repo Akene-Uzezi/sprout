@@ -49,7 +49,7 @@ func scaffold(cmd *cobra.Command, args []string) {
 var rootCmd = &cobra.Command{
 	Use:     "sprout",
 	Short:   "A CLI tool meant to scaffold new Go projects",
-	Version: "1.0.12",
+	Version: "1.0.13",
 	Args:    cobra.ExactArgs(1),
 	Long: `
 
