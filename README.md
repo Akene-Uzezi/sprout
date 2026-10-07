@@ -25,30 +25,30 @@ go install github.com/Akene-Uzezi/sprout@latest
 ## Usage
 
 ```sh
-sprout init <path> [-m module]
+sprout <path> [flags]
 ```
 
 - `<path>`: the target directory. Use `.` for the current directory or an absolute/relative path.
-- `-m, --module`: the module name for `go mod init`. If omitted when scaffolding the
-  current directory, Sprout derives the module name from the directory path.
+- `-m, --module`: the module name for `go mod init`. If omitted, Sprout derives the module name from the directory path.
+- `-l, --lang`: the language of the project to be scaffolded. Defaults to Go.
 
 ### Examples
 
 Scaffold in the current directory, deriving the module name automatically:
 
 ```sh
-sprout init .
+sprout .
 ```
 
 Scaffold at a path with an explicit module name:
 
 ```sh
-sprout init ~/projects/myapp -m github.com/me/myapp
+sprout ~/projects/myapp -m github.com/me/myapp
 ```
 
 ## What it does
 
-Running `sprout init` will:
+Running `sprout <path>` will:
 
 - Run `go mod init` with the provided (or derived) module name.
 - Create a `cmd/` and `internal/` directory structure.
