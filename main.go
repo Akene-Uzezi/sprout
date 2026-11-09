@@ -15,33 +15,35 @@ var (
 )
 
 func scaffold(cmd *cobra.Command, args []string) {
-	path := args[0]
-	if path == "." {
-		wd, err := os.Getwd()
-		if err != nil {
-			log.Printf("Unable to get wd: %s", err)
-			os.Exit(1)
-		}
-		if moduleName == "" {
-			util.NoModuleName(wd)
+	if language == "" {
+		path := args[0]
+		if path == "." {
+			wd, err := os.Getwd()
+			if err != nil {
+				log.Printf("Unable to get wd: %s", err)
+				os.Exit(1)
+			}
+			if moduleName == "" {
+				util.NoModuleName(wd)
+			} else {
+				util.WithModuleName(moduleName)
+			}
 		} else {
-			util.WithModuleName(moduleName)
-		}
-	} else {
-		err := os.Chdir(path)
-		if err != nil {
-			log.Printf("error: %s", err)
-			os.Exit(1)
-		}
-		wd, err := os.Getwd()
-		if err != nil {
-			log.Printf("Unable to get wd: %s", err)
-			os.Exit(1)
-		}
-		if moduleName == "" {
-			util.NoModuleName(wd)
-		} else {
-			util.WithModuleName(moduleName)
+			err := os.Chdir(path)
+			if err != nil {
+				log.Printf("error: %s", err)
+				os.Exit(1)
+			}
+			wd, err := os.Getwd()
+			if err != nil {
+				log.Printf("Unable to get wd: %s", err)
+				os.Exit(1)
+			}
+			if moduleName == "" {
+				util.NoModuleName(wd)
+			} else {
+				util.WithModuleName(moduleName)
+			}
 		}
 	}
 }
